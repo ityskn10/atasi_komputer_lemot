@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YSKN Digital Studio | Windows Pro Performance & Optimization Hub</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              dark: '#0B1120',
+              card: '#111827',
+              border: '#1E293B',
+              blue: '#2563EB',
+              cyan: '#06B6D4',
+              emerald: '#10B981',
+            }
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+
+  <!-- Toast Notification Container (No alert() used) -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Sticky Brand Header -->
+  <header class="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <!-- Brand Logo & Studio Name (Uncropped Logo Container) -->
+      <a href="#top" class="flex items-center gap-3.5 group focus:outline-none">
+        <div class="bg-white rounded-xl p-1.5 shadow-md shadow-cyan-500/10 border border-slate-200/80 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105">
+          <img
+            src="https://i.pinimg.com/736x/62/a0/b7/62a0b71fb690efc8fb3d6590f179163c.jpg"
+            alt="YSKN Digital Studio Logo"
+            class="h-11 sm:h-12 w-auto max-w-[130px] object-contain rounded-md block"
+            onerror="this.onerror=null;this.src='https://placehold.co/120x60/ffffff/0f172a?text=YSKN';"
+          />
+        </div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white">
+              YSKN Digital Studio
+            </span>
+            <span class="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+              Windows Pro Edition
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-snug">
+            Panduan Optimasi Sistem &amp; Performa Windows Pro <span class="text-slate-600 mx-1">/</span> System Performance Hub
+          </p>
+        </div>
+      </a>
+
+      <!-- Navigation & Language Mode Toggle -->
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+        <nav class="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-300 mr-2">
+          <a href="#bottlenecks" class="hover:text-cyan-400 transition-colors">Bottlenecks</a>
+          <a href="#diagnostic" class="hover:text-cyan-400 transition-colors">Diagnosa Cepat</a>
+          <a href="#strategies" class="hover:text-cyan-400 transition-colors">6 Strategi Pro</a>
+          <a href="#cheatsheet" class="hover:text-cyan-400 transition-colors">Quick Commands</a>
+        </nav>
+
+        <!-- Language Display Mode Switcher -->
+        <div class="inline-flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1 text-xs font-medium" role="group" aria-label="Language Mode">
+          <button type="button" data-lang="both" class="lang-btn px-2.5 py-1.5 rounded-lg bg-blue-600 text-white shadow-sm transition-all">
+            EN + ID
+          </button>
+          <button type="button" data-lang="en" class="lang-btn px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">
+            English
+          </button>
+          <button type="button" data-lang="id" class="lang-btn px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">
+            Indonesia
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-14">
+
+    <!-- HERO SECTION & CORE BOTTLENECK INSIGHTS -->
+    <section id="bottlenecks" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950/60 border border-slate-800 p-6 sm:p-10 shadow-2xl">
+      <!-- Subtle Decorative Glow -->
+      <div class="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-cyan-500/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-blue-600/10 blur-3xl"></div>
+
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Left Column: Concise Bottleneck Insight (Under Two Paragraphs) -->
+        <div class="lg:col-span-7 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>YSKN Digital Studio • System Speed &amp; Background Process Guide</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-2xl sm:text-4xl lg:text-[2.5rem] text-white leading-tight">
+            <span class="lang-en-block">Eliminate Slowdowns &amp; Master Background Processes on <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Windows Pro</span></span>
+            <span class="lang-id-block block text-lg sm:text-2xl font-bold text-slate-300 mt-1.5">
+              Atasi Komputer Lemot &amp; Kelola Proses Latar Belakang di Windows Pro
+            </span>
+          </h1>
+
+          <!-- Two Concise Paragraphs Covering Core Bottleneck Insights -->
+          <div class="space-y-3.5 text-sm sm:text-base text-slate-300 leading-relaxed bg-slate-950/50 border border-slate-800/80 rounded-2xl p-5">
+            <p class="lang-en-block">
+              Most computer slowdowns trace back to a single saturated resource—<strong class="text-cyan-300">memory pressure</strong> when active apps and background tasks exceed available RAM, <strong class="text-blue-300">storage I/O delays</strong> when drives read or write too slowly, or <strong class="text-amber-300">thermal throttling</strong> when trapped heat forces the processor to lower its clock speed. Unchecked background processes quietly compound every one of these bottlenecks by competing for CPU cycles, memory bandwidth, and disk access while you work.
+            </p>
+            <p class="lang-id-block text-slate-400 border-t border-slate-800/80 pt-3">
+              Sebagian besar penurunan performa komputer berasal dari satu sumber daya yang jenuh—<strong class="text-cyan-300">tekanan memori (RAM penuh)</strong> saat aplikasi aktif dan tugas latar belakang melampaui kapasitas RAM, <strong class="text-blue-300">hambatan baca/tulis storage (Storage I/O)</strong> saat drive bekerja terlalu lambat, atau <strong class="text-amber-300">thermal throttling</strong> ketika panas berlebih memaksa prosesor menurunkan kecepatan clock-nya. Proses latar belakang yang tidak terkontrol memperparah ketiga bottleneck ini karena terus berebut siklus CPU, bandwidth memori, dan akses disk saat Anda bekerja.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: 3 Core Bottleneck Cards + Live Optimization Score -->
+        <div class="lg:col-span-5 space-y-4">
+          <!-- Live Optimization Score Card -->
+          <div class="rounded-2xl bg-slate-950/80 border border-slate-800 p-5 shadow-lg">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <div>
+                <h2 class="font-display font-bold text-sm sm:text-base text-white">
+                  System Optimization Score <span class="text-slate-400 font-normal">/ Skor Optimasi Sistem</span>
+                </h2>
+                <p class="text-xs text-slate-400">Centang strategi di bawah untuk melacak progres Windows Pro Anda</p>
+              </div>
+              <span id="score-badge" class="font-mono font-bold text-xl sm:text-2xl text-cyan-400">0%</span>
+            </div>
+            <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden">
+              <div id="score-bar" class="h-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 rounded-full transition-all duration-500" style="width: 0%;"></div>
+            </div>
+            <div class="flex items-center justify-between mt-3 text-xs text-slate-400">
+              <span id="score-count">0 / 6 Strategies Verified</span>
+              <button id="reset-progress-btn" type="button" class="text-slate-400 hover:text-rose-400 underline underline-offset-2 transition-colors">
+                Reset Progres
+              </button>
+            </div>
+          </div>
+
+          <!-- 3 Primary Bottlenecks Mini-Cards -->
+          <div class="grid grid-cols-1 gap-3">
+            <div class="rounded-2xl bg-slate-900/90 border border-cyan-500/25 p-4 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-300 flex items-center justify-center shrink-0 font-bold text-sm">
+                RAM
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm text-white">1. Memory Pressure <span class="text-cyan-300 font-normal">/ Tekanan Memori</span></h3>
+                <p class="text-xs text-slate-400 mt-0.5 leading-relaxed">
+                  Active apps &amp; background tasks exceed physical RAM, forcing Windows to swap data slowly to disk. / Aplikasi aktif &amp; background task melebihi kapasitas RAM fisik.
+                </p>
+              </div>
+            </div>
+
+            <div class="rounded-2xl bg-slate-900/90 border border-blue-500/25 p-4 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/15 text-blue-300 flex items-center justify-center shrink-0 font-bold text-sm">
+                I/O
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm text-white">2. Storage I/O Delays <span class="text-blue-300 font-normal">/ Hambatan Baca-Tulis</span></h3>
+                <p class="text-xs text-slate-400 mt-0.5 leading-relaxed">
+                  Drives read or write too slowly due to background updaters, fragmented disks, or low free space. / Drive lambat akibat proses latar belakang &amp; ruang penyimpanan penuh.
+                </p>
+              </div>
+            </div>
+
+            <div class="rounded-2xl bg-slate-900/90 border border-amber-500/25 p-4 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-300 flex items-center justify-center shrink-0 font-bold text-sm">
+                °C
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm text-white">3. Thermal Throttling <span class="text-amber-300 font-normal">/ Penurunan Clock Panas</span></h3>
+                <p class="text-xs text-slate-400 mt-0.5 leading-relaxed">
+                  Trapped heat or unoptimized power profiles force the CPU to lower clock speed under sustained load. / Panas berlebih memaksa prosesor menurunkan kecepatan clock.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BOTTLENECK DIAGNOSTIC SIMULATOR -->
+    <section id="diagnostic" class="rounded-3xl bg-slate-900/70 border border-slate-800 p-6 sm:p-8 space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-cyan-400">Interactive Tool / Alat Interaktif</span>
+          <h2 class="font-display font-bold text-xl sm:text-2xl text-white mt-1">
+            Bottleneck Diagnostic Simulator <span class="text-slate-400 font-normal">/ Diagnosa Cepat Gejala PC</span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">
+            Pilih gejala yang sedang Anda alami di Windows Pro untuk melihat penyebab utama dan langsung menuju langkah perbaikannya.
+          </p>
+        </div>
+      </div>
+
+      <!-- Symptom Buttons -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3" id="symptom-buttons">
+        <button type="button" data-symptom="slow-boot" class="symptom-btn text-left p-4 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-cyan-500/50 transition-all focus:outline-none">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-cyan-500/15 text-cyan-300">Booting &amp; Login</span>
+            <span class="text-slate-500 text-xs">#01</span>
+          </div>
+          <div class="font-semibold text-sm text-white">Slow Startup / Booting Lama</div>
+          <div class="text-xs text-slate-400 mt-1">PC terasa berat saat baru dinyalakan atau masuk desktop.</div>
+        </button>
+
+        <button type="button" data-symptom="high-ram" class="symptom-btn text-left p-4 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-cyan-500/50 transition-all focus:outline-none">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-blue-500/15 text-blue-300">Memory Pressure</span>
+            <span class="text-slate-500 text-xs">#02</span>
+          </div>
+          <div class="font-semibold text-sm text-white">High RAM / Aplikasi Latar Aktif</div>
+          <div class="text-xs text-slate-400 mt-1">RAM cepat penuh meski hanya membuka sedikit aplikasi.</div>
+        </button>
+
+        <button type="button" data-symptom="disk-100" class="symptom-btn text-left p-4 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-cyan-500/50 transition-all focus:outline-none">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-300">Storage I/O</span>
+            <span class="text-slate-500 text-xs">#03</span>
+          </div>
+          <div class="font-semibold text-sm text-white">100% Disk / Drive C: Penuh</div>
+          <div class="text-xs text-slate-400 mt-1">Proses baca/tulis lambat dan ruang penyimpanan menipis.</div>
+        </button>
+
+        <button type="button" data-symptom="thermal-lag" class="symptom-btn text-left p-4 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-cyan-500/50 transition-all focus:outline-none">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-amber-500/15 text-amber-300">Thermal &amp; UI</span>
+            <span class="text-slate-500 text-xs">#04</span>
+          </div>
+          <div class="font-semibold text-sm text-white">UI Lag &amp; CPU Drop Saat Beban</div>
+          <div class="text-xs text-slate-400 mt-1">Animasi patah-patah atau kecepatan CPU turun saat kerja berat.</div>
+        </button>
+      </div>
+
+      <!-- Diagnostic Output Panel -->
+      <div id="diagnostic-result" class="rounded-2xl bg-slate-950 border border-cyan-500/30 p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div class="space-y-1.5">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span id="diag-tag" class="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300">
+              Select a Symptom Above / Pilih Gejala di Atas
+            </span>
+          </div>
+          <h3 id="diag-title" class="font-display font-bold text-base sm:text-lg text-white">
+            Diagnosa Siap Membantu Anda / Ready to Diagnose Your Windows Pro Bottleneck
+          </h3>
+          <p id="diag-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Klik salah satu kartu gejala di atas untuk mengidentifikasi bottleneck (Memory Pressure, Storage I/O, atau Thermal Throttling) dan menyorot langkah Windows Pro yang paling tepat.
+          </p>
+        </div>
+        <button id="diag-jump-btn" type="button" class="shrink-0 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-600/20 transition-all">
+          Lihat Solusi Windows Pro ↓
+        </button>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE WINDOWS PRO OPTIMIZATION CHECKLIST (6 STRATEGIES) -->
+    <section id="strategies" class="space-y-6">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Actionable Windows Pro Playbook</span>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-white mt-1">
+            6 Practical Strategies for Windows Pro <span class="text-slate-400 font-normal">/ 6 Strategi Praktis</span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">
+            Gunakan built-in tools Windows Pro (Task Manager, Settings, <code class="text-cyan-300 font-mono">msconfig</code>, <code class="text-cyan-300 font-mono">sysdm.cpl</code>) lengkap dengan langkah verifikasi.
+          </p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="flex flex-wrap gap-2" id="category-filters">
+          <button type="button" data-cat="all" class="cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950 shadow-sm transition-all">
+            All / Semua (6)
+          </button>
+          <button type="button" data-cat="startup" class="cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition-all">
+            Startup &amp; Services
+          </button>
+          <button type="button" data-cat="system" class="cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition-all">
+            System &amp; Power
+          </button>
+          <button type="button" data-cat="storage" class="cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition-all">
+            Storage &amp; Maintenance
+          </button>
+        </div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div id="strategies-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Populated dynamically via JS for clean state sync -->
+      </div>
+    </section>
+
+    <!-- QUICK-COMMAND & SHORTCUT CHEAT SHEET -->
+    <section id="cheatsheet" class="rounded-3xl bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-slate-800 p-6 sm:p-8 space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-cyan-400">Quick Reference / Referensi Cepat</span>
+          <h2 class="font-display font-bold text-xl sm:text-2xl text-white mt-0.5">
+            Windows Pro Shortcuts &amp; Run Commands
+          </h2>
+        </div>
+        <p class="text-xs text-slate-400">Klik tombol salin untuk menyalin perintah ke clipboard</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Command 1 -->
+        <div class="rounded-2xl bg-slate-950/90 border border-slate-800 p-4 flex flex-col justify-between gap-3">
+          <div>
+            <span class="text-[11px] font-semibold text-cyan-400 uppercase">Task Manager Shortcut</span>
+            <div class="font-mono font-semibold text-sm sm:text-base text-white mt-1">Ctrl + Shift + Esc</div>
+            <p class="text-xs text-slate-400 mt-1">Buka Task Manager langsung untuk cek Startup apps, CPU, RAM, &amp; Up time.</p>
+          </div>
+          <button type="button" data-copy="Ctrl + Shift + Esc" class="copy-btn w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-cyan-300 flex items-center justify-center gap-1.5 transition-colors">
+            <span>Salin Shortcut / Copy</span>
+          </button>
+        </div>
+
+        <!-- Command 2 -->
+        <div class="rounded-2xl bg-slate-950/90 border border-slate-800 p-4 flex flex-col justify-between gap-3">
+          <div>
+            <span class="text-[11px] font-semibold text-blue-400 uppercase">Win + R Command</span>
+            <div class="font-mono font-semibold text-sm sm:text-base text-white mt-1">msconfig</div>
+            <p class="text-xs text-slate-400 mt-1">Buka System Configuration &gt; Services untuk audit layanan pihak ketiga.</p>
+          </div>
+          <button type="button" data-copy="msconfig" class="copy-btn w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-blue-300 flex items-center justify-center gap-1.5 transition-colors">
+            <span>Salin Command: msconfig</span>
+          </button>
+        </div>
+
+        <!-- Command 3 -->
+        <div class="rounded-2xl bg-slate-950/90 border border-slate-800 p-4 flex flex-col justify-between gap-3">
+          <div>
+            <span class="text-[11px] font-semibold text-amber-400 uppercase">Win + R Command</span>
+            <div class="font-mono font-semibold text-sm sm:text-base text-white mt-1">sysdm.cpl</div>
+            <p class="text-xs text-slate-400 mt-1">Buka System Properties &gt; Advanced &gt; Performance untuk atur visual effects.</p>
+          </div>
+          <button type="button" data-copy="sysdm.cpl" class="copy-btn w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-amber-300 flex items-center justify-center gap-1.5 transition-colors">
+            <span>Salin Command: sysdm.cpl</span>
+          </button>
+        </div>
+
+        <!-- Command 4 -->
+        <div class="rounded-2xl bg-slate-950/90 border border-slate-800 p-4 flex flex-col justify-between gap-3">
+          <div>
+            <span class="text-[11px] font-semibold text-emerald-400 uppercase">Windows Settings Path</span>
+            <div class="font-mono font-semibold text-xs sm:text-sm text-white mt-1">Settings &gt; System &gt; Storage</div>
+            <p class="text-xs text-slate-400 mt-1">Hapus file sementara, aktifkan Storage Sense, &amp; optimasi drive.</p>
+          </div>
+          <button type="button" data-copy="Settings > System > Storage" class="copy-btn w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-emerald-300 flex items-center justify-center gap-1.5 transition-colors">
+            <span>Salin Path / Copy</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BRAND FOOTER WITH UNCROPPED LOGO -->
+  <footer class="border-t border-slate-800/90 bg-slate-950 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+        <div class="bg-white rounded-xl p-2 border border-slate-200 shadow-sm shrink-0">
+          <img
+            src="https://i.pinimg.com/736x/62/a0/b7/62a0b71fb690efc8fb3d6590f179163c.jpg"
+            alt="YSKN Digital Studio Logo"
+            class="h-12 w-auto max-w-[140px] object-contain rounded block"
+            onerror="this.onerror=null;this.src='https://placehold.co/120x60/ffffff/0f172a?text=YSKN';"
+          />
+        </div>
+        <div>
+          <div class="font-display font-bold text-lg text-white">YSKN Digital Studio</div>
+          <p class="text-xs sm:text-sm text-slate-400 mt-0.5">
+            Panduan Optimasi Sistem &amp; Performa Windows Pro • Windows Pro Performance &amp; Background Process Hub
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center md:text-right space-y-1">
+        <p class="text-xs text-slate-400">
+          Built for peak Windows Pro productivity &amp; clean background process management.
+        </p>
+        <p class="text-xs text-slate-500">
+          &copy; <span id="year-now"></span> YSKN Digital Studio. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Application Logic -->
+  <script>
+    (function () {
+      // Set current year in footer
+      document.getElementById('year-now').textContent = new Date().getFullYear();
+
+      // Core 6 Strategies Data (Faithfully incorporating all Windows Pro details & Verification steps)
+      const strategies = [
+        {
+          id: 'strat-1',
+          number: '01',
+          category: 'startup',
+          categoryLabel: 'Startup & Services',
+          bottleneck: 'Memory Pressure & Slow Boot',
+          titleEn: 'Disable Unnecessary Startup Apps',
+          titleId: 'Nonaktifkan Aplikasi Startup yang Tidak Perlu',
+          descEn: 'Press Ctrl + Shift + Esc to open Task Manager, go to Startup apps (or the Startup tab on Windows 10), right-click apps you do not need at sign-in—such as chat clients, updaters, or game launchers—and select Disable.',
+          descId: 'Tekan Ctrl + Shift + Esc untuk membuka Task Manager, buka tab Startup apps, klik kanan aplikasi yang tidak dibutuhkan saat login (seperti chat client, updater, atau game launcher), lalu pilih Disable.',
+          verifyEn: 'Reboot and open Task Manager to confirm disabled apps show a Disabled status and boot time feels faster.',
+          verifyId: 'Restart PC dan buka Task Manager untuk memastikan aplikasi berstatus Disabled serta waktu booting terasa lebih cepat.',
+          copyLabel: 'Ctrl + Shift + Esc',
+          copyValue: 'Ctrl + Shift + Esc'
+        },
+        {
+          id: 'strat-2',
+          number: '02',
+          category: 'startup',
+          categoryLabel: 'Startup & Services',
+          bottleneck: 'Memory Pressure / RAM Penuh',
+          titleEn: 'Restrict Background App Activity',
+          titleId: 'Batasi Aktivitas Aplikasi di Latar Belakang',
+          descEn: 'Open Settings > Apps > Installed apps, select an app, open Advanced options, and set "Let this app run in the background" to Never (or toggle off background execution inside your browser\'s settings).',
+          descId: 'Buka Settings > Apps > Installed apps, pilih aplikasi, buka Advanced options, lalu ubah "Let this app run in the background" menjadi Never (atau matikan fitur background di pengaturan browser Anda).',
+          verifyEn: 'Check the Processes tab in Task Manager while idle to confirm closed apps do not keep consuming CPU or memory.',
+          verifyId: 'Periksa tab Processes di Task Manager saat kondisi idle untuk memastikan aplikasi yang sudah ditutup tidak terus memakan CPU atau RAM.',
+          copyLabel: 'Settings > Apps > Installed apps',
+          copyValue: 'Settings > Apps > Installed apps'
+        },
+        {
+          id: 'strat-3',
+          number: '03',
+          category: 'startup',
+          categoryLabel: 'Startup & Services',
+          bottleneck: 'Memory & CPU Overhead',
+          titleEn: 'Audit Third-Party Services Carefully',
+          titleId: 'Audit Layanan Pihak Ketiga Secara Hati-Hati',
+          descEn: 'Press Win + R, type msconfig, open the Services tab, check "Hide all Microsoft services", and uncheck non-essential third-party services—leaving anti-cheat, peripheral, or sync services enabled if you rely on them.',
+          descId: 'Tekan Win + R, ketik msconfig, buka tab Services, centang "Hide all Microsoft services", lalu hilangkan centang pada layanan pihak ketiga yang tidak penting—biarkan layanan anti-cheat, periferal, atau sinkronisasi tetap aktif jika dibutuhkan.',
+          verifyEn: 'Restart Windows and confirm your essential apps and hardware still work normally with lower idle background activity.',
+          verifyId: 'Restart Windows dan pastikan aplikasi serta perangkat keras penting tetap berjalan normal dengan aktivitas idle yang lebih rendah.',
+          copyLabel: 'msconfig',
+          copyValue: 'msconfig'
+        },
+        {
+          id: 'strat-4',
+          number: '04',
+          category: 'system',
+          categoryLabel: 'System & Power',
+          bottleneck: 'Thermal Throttling & UI Lag',
+          titleEn: 'Tune Visual Effects & Power Mode',
+          titleId: 'Sesuaikan Efek Visual & Mode Daya (Power Mode)',
+          descEn: 'Press Win + R, type sysdm.cpl, open Advanced > Performance > Settings, and pick "Adjust for best performance" (or keep font smoothing enabled), then set Settings > System > Power & battery > Power mode to Best performance when plugged in.',
+          descId: 'Tekan Win + R, ketik sysdm.cpl, buka Advanced > Performance > Settings, pilih "Adjust for best performance" (tetap aktifkan font smoothing bila perlu), lalu atur Settings > System > Power & battery > Power mode ke Best performance saat terhubung ke listrik.',
+          verifyEn: 'Open a heavy app or window and check that animations feel snappier while CPU clock speeds stay elevated under load.',
+          verifyId: 'Buka aplikasi berat dan pastikan animasi jendela terasa lebih responsif sementara kecepatan clock CPU tetap optimal di bawah beban kerja.',
+          copyLabel: 'sysdm.cpl',
+          copyValue: 'sysdm.cpl'
+        },
+        {
+          id: 'strat-5',
+          number: '05',
+          category: 'storage',
+          categoryLabel: 'Storage & Maintenance',
+          bottleneck: 'Storage I/O Delays',
+          titleEn: 'Free Up Storage & Optimize Drives',
+          titleId: 'Kosongkan Ruang Penyimpanan & Optimasi Drive',
+          descEn: 'Open Settings > System > Storage to remove temporary files or enable Storage Sense, then search for "Defragment and Optimize Drives" to optimize your drive (or let Windows run TRIM on SSDs).',
+          descId: 'Buka Settings > System > Storage untuk menghapus file sementara atau mengaktifkan Storage Sense, lalu cari "Defragment and Optimize Drives" untuk mengoptimalkan drive (atau menjalankan TRIM pada SSD).',
+          verifyEn: 'Check available space on your system drive (C:) and confirm disk usage in Task Manager stays low during everyday tasks.',
+          verifyId: 'Periksa sisa ruang kosong pada drive sistem (C:) dan pastikan penggunaan disk di Task Manager tetap rendah saat aktivitas harian.',
+          copyLabel: 'Settings > System > Storage',
+          copyValue: 'Settings > System > Storage'
+        },
+        {
+          id: 'strat-6',
+          number: '06',
+          category: 'storage',
+          categoryLabel: 'Storage & Maintenance',
+          bottleneck: 'Memory Leaks & Stalled Updaters',
+          titleEn: 'Restart Regularly & Update Windows',
+          titleId: 'Restart Secara Berkala & Perbarui Windows',
+          descEn: 'Use Restart rather than leaving the PC in sleep mode for days, and check Settings > Windows Update for system and driver updates to clear stuck processes and memory leaks.',
+          descId: 'Gunakan opsi Restart daripada membiarkan PC dalam mode Sleep berhari-hari, serta periksa Settings > Windows Update untuk pembaruan sistem dan driver guna membersihkan proses macet dan memory leak.',
+          verifyEn: 'Check the Up time counter on the Performance > CPU tab in Task Manager after a restart to confirm it resets near zero.',
+          verifyId: 'Periksa penghitung Up time pada tab Performance > CPU di Task Manager setelah restart untuk memastikan waktunya kembali mendekati nol.',
+          copyLabel: 'Settings > Windows Update',
+          copyValue: 'Settings > Windows Update'
+        }
+      ];
+
+      // Diagnostic Scenarios
+      const diagnostics = {
+        'slow-boot': {
+          tag: 'Bottleneck: Startup Saturation & Memory Pressure',
+          title: 'Solusi: Pangkas Startup Apps & Audit Layanan Pihak Ketiga',
+          desc: 'Terlalu banyak program otomatis berjalan saat login membuat CPU dan disk langsung jenuh. Terapkan Strategi #01 (Task Manager > Startup apps) dan Strategi #03 (msconfig > Services).',
+          targetId: 'strat-1',
+          category: 'startup'
+        },
+        'high-ram': {
+          tag: 'Bottleneck: Memory Pressure (Tekanan Memori / RAM Penuh)',
+          title: 'Solusi: Batasi Background App Activity & Restart Berkala',
+          desc: 'Aplikasi yang berjalan diam-diam di latar belakang dan memory leak menghabiskan kapasitas RAM fisik. Terapkan Strategi #02 (Installed apps > Advanced options) dan Strategi #06 (Restart penuh).',
+          targetId: 'strat-2',
+          category: 'startup'
+        },
+        'disk-100': {
+          tag: 'Bottleneck: Storage I/O Delays (Hambatan Baca/Tulis Storage)',
+          title: 'Solusi: Bersihkan Temporary Files & Optimasi Drive / TRIM SSD',
+          desc: 'Ruang drive C: yang sesak dan file sementara menghambat kecepatan baca/tulis Windows Pro. Terapkan Strategi #05 (Settings > System > Storage & Optimize Drives).',
+          targetId: 'strat-5',
+          category: 'storage'
+        },
+        'thermal-lag': {
+          tag: 'Bottleneck: Thermal Throttling & Heavy UI Overhead',
+          title: 'Solusi: Optimalkan Visual Effects, Power Mode & Sirkulasi Udara',
+          desc: 'Efek animasi berlebih dan profil daya yang kurang tepat membebani CPU/GPU saat beban berat. Terapkan Strategi #04 (sysdm.cpl & Power mode: Best performance) serta pastikan ventilasi bebas debu.',
+          targetId: 'strat-4',
+          category: 'system'
+        }
+      };
+
+      // State
+      const STORAGE_KEY = 'yskn_winpro_completed_v1';
+      let completedIds = [];
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        if (Array.isArray(saved)) completedIds = saved;
+      } catch (e) {
+        completedIds = [];
+      }
+
+      let currentCategory = 'all';
+      let currentLang = 'both';
+      let highlightedStrategyId = null;
+
+      // Toast helper (replaces alert())
+      function showToast(message) {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = 'pointer-events-auto bg-slate-900/95 text-white border border-cyan-500/40 shadow-xl rounded-xl px-4 py-2.5 text-xs sm:text-sm font-medium flex items-center gap-2 transition-all duration-300 transform translate-y-2 opacity-0';
+        toast.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400"></span><span>${message}</span>`;
+        container.appendChild(toast);
+
+        requestAnimationFrame(() => {
+          toast.classList.remove('translate-y-2', 'opacity-0');
+        });
+
+        setTimeout(() => {
+          toast.classList.add('opacity-0', 'translate-y-2');
+          setTimeout(() => toast.remove(), 300);
+        }, 2600);
+      }
+
+      // Copy to clipboard helper using execCommand fallback
+      function copyTextToClipboard(text) {
+        try {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          showToast(`Disalin / Copied: "${text}"`);
+        } catch (err) {
+          showToast(`Shortcut / Command: ${text}`);
+        }
+      }
+
+      // Update Progress Score UI
+      function updateScoreUI() {
+        const total = strategies.length;
+        const done = completedIds.length;
+        const pct = Math.round((done / total) * 100);
+
+        document.getElementById('score-badge').textContent = `${pct}%`;
+        document.getElementById('score-bar').style.width = `${pct}%`;
+        document.getElementById('score-count').textContent = `${done} / ${total} Strategies Verified`;
+      }
+
+      // Apply Language Visibility Mode
+      function applyLanguageMode() {
+        const enBlocks = document.querySelectorAll('.lang-en-block');
+        const idBlocks = document.querySelectorAll('.lang-id-block');
+
+        enBlocks.forEach(el => {
+          el.style.display = (currentLang === 'id') ? 'none' : '';
+        });
+        idBlocks.forEach(el => {
+          el.style.display = (currentLang === 'en') ? 'none' : '';
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          const isMatch = btn.getAttribute('data-lang') === currentLang;
+          if (isMatch) {
+            btn.className = 'lang-btn px-2.5 py-1.5 rounded-lg bg-blue-600 text-white shadow-sm transition-all';
+          } else {
+            btn.className = 'lang-btn px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all';
+          }
+        });
+      }
+
+      // Render Strategy Cards
+      function renderStrategies() {
+        const grid = document.getElementById('strategies-grid');
+        const filtered = currentCategory === 'all'
+          ? strategies
+          : strategies.filter(s => s.category === currentCategory);
+
+        grid.innerHTML = filtered.map(item => {
+          const isDone = completedIds.includes(item.id);
+          const isHighlighted = highlightedStrategyId === item.id;
+
+          return `
+            <article id="${item.id}" class="rounded-2xl border transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between gap-4 ${
+              isHighlighted
+                ? 'bg-slate-900 border-cyan-400 ring-2 ring-cyan-400/30 shadow-xl shadow-cyan-500/10'
+                : isDone
+                  ? 'bg-slate-900/60 border-emerald-500/40'
+                  : 'bg-slate-900/90 border-slate-800 hover:border-slate-700'
+            }">
+              <div class="space-y-3.5">
+                <!-- Card Top Metadata & Checkbox -->
+                <div class="flex items-start justify-between gap-3">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-blue-500/15 text-blue-300 border border-blue-500/30">
+                      #${item.number}
+                    </span>
+                    <span class="text-xs font-medium px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">
+                      ${item.categoryLabel}
+                    </span>
+                    <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                      ${item.bottleneck}
+                    </span>
+                  </div>
+
+                  <!-- Interactive Completion Checkbox -->
+                  <label class="inline-flex items-center gap-2 cursor-pointer select-none shrink-0 bg-slate-950 border ${
+                    isDone ? 'border-emerald-500/50 text-emerald-300' : 'border-slate-700 text-slate-300 hover:border-cyan-500/50'
+                  } px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors">
+                    <input
+                      type="checkbox"
+                      data-toggle-id="${item.id}"
+                      ${isDone ? 'checked' : ''}
+                      class="w-4 h-4 rounded accent-emerald-500 cursor-pointer"
+                    />
+                    <span>${isDone ? 'Selesai / Done' : 'Tandai / Check'}</span>
+                  </label>
+                </div>
+
+                <!-- Bilingual Strategy Title -->
+                <div>
+                  <h3 class="lang-en-block font-display font-bold text-lg text-white leading-snug">
+                    ${item.titleEn}
+                  </h3>
+                  <h4 class="lang-id-block font-display font-semibold text-base text-cyan-300 mt-0.5 leading-snug">
+                    ${item.titleId}
+                  </h4>
+                </div>
+
+                <!-- Bilingual Action Steps -->
+                <div class="space-y-2 text-xs sm:text-sm leading-relaxed">
+                  <p class="lang-en-block text-slate-300">
+                    ${item.descEn}
+                  </p>
+                  <p class="lang-id-block text-slate-400 ${currentLang === 'both' ? 'border-t border-slate-800/80 pt-2' : ''}">
+                    ${item.descId}
+                  </p>
+                </div>
+              </div>
+
+              <!-- Verification Box + Quick Copy Bar -->
+              <div class="space-y-3 pt-2">
+                <div class="rounded-xl bg-emerald-950/30 border border-emerald-500/25 p-3.5 space-y-1">
+                  <div class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-400">
+                    <span>✓ Verification / Cara Verifikasi</span>
+                  </div>
+                  <p class="lang-en-block text-xs text-emerald-100/90 leading-relaxed">
+                    ${item.verifyEn}
+                  </p>
+                  <p class="lang-id-block text-xs text-emerald-200/80 leading-relaxed">
+                    ${item.verifyId}
+                  </p>
+                </div>
+
+                <div class="flex items-center justify-between gap-2 bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2">
+                  <code class="font-mono text-xs text-cyan-300 truncate">${item.copyLabel}</code>
+                  <button
+                    type="button"
+                    data-copy="${item.copyValue}"
+                    class="copy-btn shrink-0 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-blue-600 text-xs font-semibold text-white transition-colors"
+                  >
+                    Salin / Copy
+                  </button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        applyLanguageMode();
+      }
+
+      // Event Delegation for Strategy Checkboxes & Copy Buttons
+      document.addEventListener('change', function (e) {
+        const toggleId = e.target.getAttribute('data-toggle-id');
+        if (!toggleId) return;
+
+        if (e.target.checked) {
+          if (!completedIds.includes(toggleId)) completedIds.push(toggleId);
+          showToast('Strategi ditandai selesai! / Strategy verified.');
+        } else {
+          completedIds = completedIds.filter(id => id !== toggleId);
+        }
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(completedIds));
+        } catch (err) {}
+
+        updateScoreUI();
+        renderStrategies();
+      });
+
+      document.addEventListener('click', function (e) {
+        const copyBtn = e.target.closest('.copy-btn');
+        if (copyBtn) {
+          const val = copyBtn.getAttribute('data-copy');
+          if (val) copyTextToClipboard(val);
+        }
+      });
+
+      // Category Filter Buttons
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          currentCategory = this.getAttribute('data-cat');
+          document.querySelectorAll('.cat-btn').forEach(b => {
+            if (b === this) {
+              b.className = 'cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950 shadow-sm transition-all';
+            } else {
+              b.className = 'cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition-all';
+            }
+          });
+          renderStrategies();
+        });
+      });
+
+      // Language Switcher Buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          currentLang = this.getAttribute('data-lang');
+          applyLanguageMode();
+          renderStrategies();
+        });
+      });
+
+      // Diagnostic Simulator Buttons
+      let activeDiagTarget = 'strat-1';
+      document.querySelectorAll('.symptom-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const key = this.getAttribute('data-symptom');
+          const data = diagnostics[key];
+          if (!data) return;
+
+          document.querySelectorAll('.symptom-btn').forEach(b => {
+            b.classList.remove('border-cyan-400', 'bg-slate-900');
+            b.classList.add('border-slate-800', 'bg-slate-950/70');
+          });
+          this.classList.remove('border-slate-800', 'bg-slate-950/70');
+          this.classList.add('border-cyan-400', 'bg-slate-900');
+
+          document.getElementById('diag-tag').textContent = data.tag;
+          document.getElementById('diag-title').textContent = data.title;
+          document.getElementById('diag-desc').textContent = data.desc;
+          activeDiagTarget = data.targetId;
+          highlightedStrategyId = data.targetId;
+
+          // Ensure 'all' category is shown so target card is always visible
+          currentCategory = 'all';
+          document.querySelectorAll('.cat-btn').forEach(b => {
+            if (b.getAttribute('data-cat') === 'all') {
+              b.className = 'cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950 shadow-sm transition-all';
+            } else {
+              b.className = 'cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700 transition-all';
+            }
+          });
+          renderStrategies();
+        });
+      });
+
+      document.getElementById('diag-jump-btn').addEventListener('click', function () {
+        const targetEl = document.getElementById(activeDiagTarget) || document.getElementById('strategies');
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+
+      // Reset Progress Button
+      document.getElementById('reset-progress-btn').addEventListener('click', function () {
+        completedIds = [];
+        highlightedStrategyId = null;
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch (err) {}
+        updateScoreUI();
+        renderStrategies();
+        showToast('Progres optimasi direset / Progress reset.');
+      });
+
+      // Initial Render
+      updateScoreUI();
+      renderStrategies();
+    })();
+  </script>
+</body>
+</html>
